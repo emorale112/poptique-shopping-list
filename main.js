@@ -1,11 +1,12 @@
 /**
  * Poptique Shopping List – frontend
  *
- * API_BASE:
- * - '/api/proxy' when frontend and proxy are on the same host (e.g. Vercel)
- * - 'https://YOUR_VERCEL_APP.vercel.app/api/proxy' when frontend is on GitHub Pages and proxy on Vercel
+ * API_BASE (set window.POPTIQUE_API_BASE before this script to override):
+ * - Omit or '/api/proxy' when frontend and proxy are on the same host (Vercel).
+ * - For GitHub Pages: set to your proxy URL
+ *   (Vercel: https://YOUR_APP.vercel.app/api/proxy | Worker: https://YOUR_WORKER.workers.dev)
  */
-const API_BASE = "/api/proxy";
+const API_BASE = (typeof window !== "undefined" && window.POPTIQUE_API_BASE) || "/api/proxy";
 
 const PLATFORMS = ["eBay", "Poshmark", "Depop", "Whatnot", "Facebook Marketplace", "Vinted"];
 

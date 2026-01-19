@@ -44,6 +44,7 @@ Web app that collects product entries from a form, stores them in a **Google She
 | `main.js`          | Form handling, `loadList`/`displayGrouped`, API calls, swipe, sheet, `toggleCard`/`markAll*`. |
 | `styles.css`       | Purple theme, cards, platform colors, swipe rows, sheet/backdrop. |
 | `api/proxy.js`     | Vercel serverless: forwards GET/POST to `SCRIPT_URL`, sets CORS. |
+| `cloudflare-worker.js` | Cloudflare Worker: same as `api/proxy.js`; use with GitHub Pages to avoid Vercel. |
 | `Code.gs`          | Apps Script: `doGet`/`doPost` JSON API + `getProducts`, `addProduct`, `updatePicked`, `deleteRow`, `clearList`, `updatePlatform`, `markAllPicked`, `markAllUnpicked`. |
 | `README.md`        | Setup, deployment (Apps Script, Vercel, GitHub Pages), env, troubleshooting. |
 | `.gitignore`       | `.DS_Store`, `node_modules/`. |
