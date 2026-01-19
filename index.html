@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Poptique – Shopping List</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="header">
+    <img src="https://raw.githubusercontent.com/emorale112/inventory/main/poptiqueTextLogo.png" alt="Poptique" />
+  </div>
+
+  <div class="card">
+    <div class="form-title" id="form-title">
+      <h2>Add Product</h2>
+      <span id="form-chevron" class="form-chevron">▼</span>
+    </div>
+
+    <div id="form-section">
+      <label>Product Name</label>
+      <input id="product" type="text" />
+
+      <label>Platform</label>
+      <select id="platform">
+        <option value="eBay">eBay</option>
+        <option value="Poshmark">Poshmark</option>
+        <option value="Depop">Depop</option>
+        <option value="Whatnot">Whatnot</option>
+        <option value="Facebook Marketplace">Facebook Marketplace</option>
+        <option value="Vinted">Vinted</option>
+      </select>
+
+      <button id="add-btn">Add Product</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="top-actions">
+      <button id="refresh-btn">Refresh</button>
+      <button id="clear-btn">Clear List</button>
+    </div>
+
+    <div id="error-msg" class="error-msg" hidden></div>
+    <div id="loading-msg" class="loading-msg" hidden>Loading…</div>
+
+    <h2>Product List</h2>
+    <div id="grouped-output"></div>
+  </div>
+
+  <!-- Slide-up sheet: Edit Marketplace -->
+  <div id="sheet-backdrop" class="sheet-backdrop"></div>
+  <div id="sheet" class="sheet">
+    <h3>Edit Marketplace</h3>
+    <div id="sheet-options"></div>
+    <button id="sheet-cancel">Cancel</button>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

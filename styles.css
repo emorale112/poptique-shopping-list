@@ -1,0 +1,242 @@
+/* Poptique – Shopping List */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+  background: #d3cddc;
+  color: #440099;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header img {
+  height: 90px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.form-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.form-chevron {
+  font-size: 20px;
+  transition: transform 0.2s ease;
+}
+
+.top-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.top-actions button {
+  background: #440099;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.top-actions button:hover {
+  background: #330077;
+}
+
+.top-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-msg {
+  color: #aa2266;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.loading-msg {
+  color: #440099;
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+.platform-card {
+  border-radius: 12px;
+  margin-top: 20px;
+  padding: 15px;
+}
+
+.platform-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toolbar {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.toolbar span {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.toolbar span:hover {
+  text-decoration: underline;
+}
+
+.swipe-row {
+  position: relative;
+  overflow: hidden;
+  touch-action: pan-y;
+  margin-top: 10px;
+}
+
+.swipe-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: transparent;
+  transition: transform 0.25s ease;
+}
+
+.delete-indicator {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: #aa2266;
+  border-radius: 4px 0 0 4px;
+  transition: width 0.2s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.heart-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.heart-icon {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.15s ease;
+}
+
+.heart-btn:hover .heart-icon {
+  transform: scale(1.15);
+}
+
+.picked-badge {
+  background: #7a3db8;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  margin-right: 10px;
+}
+
+/* Backdrop + sheet */
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  display: none;
+}
+
+.sheet-backdrop.visible {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -320px;
+  background: white;
+  border-radius: 16px 16px 0 0;
+  padding: 20px;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+  transition: bottom 0.3s ease;
+}
+
+.sheet.visible {
+  bottom: 0;
+}
+
+.sheet h3 {
+  margin-top: 0;
+}
+
+.sheet button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0 12px 0;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+}
+
+button {
+  background: #440099;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #330077;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+[hidden] {
+  display: none !important;
+}
